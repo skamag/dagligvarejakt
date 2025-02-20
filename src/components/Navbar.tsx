@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Navbar({
+const Navbar: React.FC<any> = ({
   resetStates,
   searchText,
   setSearchText,
@@ -8,7 +8,7 @@ function Navbar({
   valgtVare,
   navActive,
   setNavActive,
-}) {
+}) => {
   const toggleSidebar = () => {
     // navActive ? setNavActive(false) : setNavActive(true)
 
@@ -68,6 +68,6 @@ function Navbar({
       ></div>
     </>
   );
-}
+};
 
 export default Navbar;

@@ -1,6 +1,4 @@
-import React from "react";
-
-function Sort({ setPage, selectedSort, setSelectedSort }) {
+const Sort: React.FC<any> = ({ setPage, selectedSort, setSelectedSort }) => {
   return (
     <div className="sort-container">
       <select
@@ -19,6 +17,6 @@ function Sort({ setPage, selectedSort, setSelectedSort }) {
       </select>
     </div>
   );
-}
+};
 
 export default Sort;

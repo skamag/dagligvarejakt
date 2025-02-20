@@ -1,15 +1,14 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-function Results({ data, setValgtVare, loading }) {
-  const isValidUrl = (url) => {
+const Results: React.FC<any> = ({ data, setValgtVare, loading }) => {
+  const isValidUrl = (url: any) => {
     try {
-      new URL(url) // Checks if the URL is well-formed
-      return true
+      new URL(url); // Checks if the URL is well-formed
+      return true;
     } catch (error) {
-      return false
+      return false;
     }
-  }
+  };
 
   return (
     <section className="results-container">
@@ -18,13 +17,13 @@ function Results({ data, setValgtVare, loading }) {
       ) : data.length > 0 ? (
         data
           .filter(
-            (value, index, self) =>
+            (value: any, index: any, self: any) =>
               index ===
               self.findIndex(
-                (t) => t.place === value.place && t.name === value.name
+                (t: any) => t.place === value.place && t.name === value.name
               )
           )
-          .map((item) => (
+          .map((item: any) => (
             <Link to="/vare" className="link" key={item.id}>
               <article
                 className="product-card"
@@ -39,7 +38,7 @@ function Results({ data, setValgtVare, loading }) {
                     }
                     alt={item.name}
                     onError={(e) => {
-                      e.target.src = "/default-image.png"
+                      (e.target as HTMLImageElement).src = "/default-image.png";
                     }}
                   />
                 </div>
@@ -48,13 +47,13 @@ function Results({ data, setValgtVare, loading }) {
                   <div className="card-stores-container">
                     {data
                       .filter(
-                        (product) =>
+                        (product: any) =>
                           product.name &&
                           product.name
                             .toLowerCase()
                             .includes(item.name.toLowerCase())
                       )
-                      .map((currentItem) => (
+                      .map((currentItem: any) => (
                         <div className="card-store" key={currentItem.id}>
                           {currentItem.store && currentItem.store.logo ? (
                             <>
@@ -81,7 +80,7 @@ function Results({ data, setValgtVare, loading }) {
         <p>No results found</p>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default Results
+export default Results;

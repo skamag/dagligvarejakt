@@ -1,10 +1,9 @@
-import React from "react";
 import PageNavigation from "../components/PageNavigation";
 import Sort from "../components/Sort";
 import Results from "../components/Results";
 import "./Home.css";
 
-function Home({
+const Home: React.FC<any> = ({
   data,
   selectedSort,
   setSelectedSort,
@@ -12,7 +11,7 @@ function Home({
   page,
   setPage,
   loading,
-}) {
+}) => {
   return (
     <>
       <section className="products-section">
@@ -28,6 +27,6 @@ function Home({
       </section>
     </>
   );
-}
+};
 
 export default Home;

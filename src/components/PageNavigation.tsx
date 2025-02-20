@@ -1,6 +1,4 @@
-import React from "react";
-
-function PageNavigation({ page, setPage }) {
+const PageNavigation: React.FC<any> = ({ page, setPage }) => {
   return (
     <div className="buttons-container">
       <button
@@ -16,6 +14,6 @@ function PageNavigation({ page, setPage }) {
       </button>
     </div>
   );
-}
+};
 
 export default PageNavigation;

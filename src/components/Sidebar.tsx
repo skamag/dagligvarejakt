@@ -1,7 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-function Sidebar({
+const Sidebar: React.FC<any> = ({
   setSearchRequest,
   priceFrom,
   setPriceFrom,
@@ -12,10 +11,9 @@ function Sidebar({
   selectedBrand,
   setSelectedBrand,
   setPage,
-  valgtVare,
   navActive,
   setNavActive,
-}) {
+}) => {
   return (
     <div className={`sidebar ${navActive && "sidebar-toggle"}`}>
       <div className="price-range-container">
@@ -44,7 +42,7 @@ function Sidebar({
       <div className="common-searches">
         <h2 className="sidebar-header">Populære søk</h2>
         <ul>
-          {popularSearches.map((tag) => (
+          {popularSearches.map((tag: any) => (
             <li key={tag} className="brand-option">
               {/* {valgtVare ?  <Link to="/">{button(tag)}</Link> : button(tag)} */}
               <Link to="/">
@@ -66,7 +64,7 @@ function Sidebar({
       <div className="brands-container">
         <h2 className="sidebar-header">Merker</h2>
         <ul>
-          {availableBrands.map((brand) => (
+          {availableBrands.map((brand: any) => (
             <li key={brand} className="brand-option">
               <Link to="/">
                 <button
@@ -90,6 +88,6 @@ function Sidebar({
       </div>
     </div>
   );
-}
+};
 
 export default Sidebar;

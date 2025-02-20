@@ -2,7 +2,7 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { Outlet } from "react-router-dom";
 
-function Layout({
+const Layout: React.FC<any> = ({
   resetStates,
   searchText,
   setSearchRequest,
@@ -22,7 +22,7 @@ function Layout({
   valgtVare,
   navActive,
   setNavActive,
-}) {
+}) => {
   return (
     <>
       <Navbar
@@ -48,7 +48,6 @@ function Layout({
           selectedBrand={selectedBrand}
           setSelectedBrand={setSelectedBrand}
           setPage={setPage}
-          valgtVare={valgtVare}
           navActive={navActive}
           setNavActive={setNavActive}
         />
@@ -58,6 +57,6 @@ function Layout({
       </div>
     </>
   );
-}
+};
 
 export default Layout;
