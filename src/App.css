@@ -1,0 +1,201 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: #333;
+  padding: 0 5%;
+}
+li {
+  list-style-type: none;
+}
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: 'Poppins', serif;
+}
+.link {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5% 0;
+}
+.header .logo .logo-text, .header .logo .logo-icon {
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-weight: 300;
+  /* background: linear-gradient(to right, #587e7e, #89577f); */
+  background: linear-gradient(to right, #2f7070, #405070, #7e3e71);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.header .logo .logo-text{
+  display: block;
+}
+.header .logo .logo-icon {
+  display: none;
+}
+.header .searchbar-container {
+  border: 1px solid #aaa;
+  border-radius: 0.25rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  padding-left: 0.75rem;
+  box-sizing: border-box;
+}
+.header .searchbar-container input {
+  background-color: transparent;
+  border: none;
+}
+.header .searchbar-container input:focus {
+  outline: none;
+}
+.header .searchbar-container .search-button {
+  background-color: #ddd;
+  padding: 0.75rem 1rem;
+}
+.header .searchbar-container .search-button i {
+  color: #333;
+}
+.nav-burger{
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 100;
+}
+.nav-burger .line{
+  background-color: #333;
+  height: 3px;
+  width: 25px;
+  transition: 0.5s;
+}
+
+.sidebar-main-wrapper {
+  display: flex;
+  gap: 10%;
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.sidebar .sidebar-header {
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+.sidebar .price-range-container {
+  display: flex;
+  flex-direction: column;
+}
+.sidebar .price-inputs-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+.sidebar .price-inputs-wrapper input {
+  width: 4rem;
+  padding: 0.5rem;
+  border: 1px solid #aaa;
+  border-radius: 0.25rem;
+}
+.sidebar .stores-container ul li label {
+  display: flex;
+  gap: 1rem;
+}
+.selected-brand {
+  font-weight: bold;
+}
+
+/* Main */
+main {
+  display: flex;
+  width: 100%;
+}
+
+@media screen and (min-width: 1500px) {
+  .App {
+    padding: 0 15%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .header .logo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header .logo .logo-text{
+    display: none;
+  }
+  .header .logo .logo-icon {
+    display: block;
+  }
+  .header .searchbar-container, .header .searchbar-container input {
+    width: 100%;
+  }
+  .nav-burger{
+    display: flex;
+  }
+  .sidebar {
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    transition: 1s;
+    padding: 1rem;
+  }
+  .dark-screen, .dark-screen-hidden{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 400vh;
+    width: 100%;
+    background-color: black;
+    transition: 1s;
+  }
+  .dark-screen{
+visibility: visible;
+    opacity: 0.25;
+  }
+  .dark-screen-hidden{
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.sidebar-toggle{
+  transform: translate(0);
+}
+/* .nav-burger .line-toggle{
+  background-color: white;
+} */
+.nav-burger .line1-toggle{
+  transform: rotate(-45deg) translate(-5.675px, 5.675px);
+}
+.nav-burger .line2-toggle{
+  opacity: 0;
+}
+.nav-burger .line3-toggle{
+  transform: rotate(45deg) translate(-5.675px, -5.675px);
+}

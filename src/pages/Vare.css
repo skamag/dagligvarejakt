@@ -1,0 +1,153 @@
+.valgtVareContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* align-items: flex-start; */
+  gap: 4rem;
+  /* margin: 2rem auto;
+  padding: 2rem 4rem; */
+  box-sizing: border-box;
+}
+.valgtVareProductCard {
+  display: flex;
+  gap: 4rem;
+  border-radius: 0.25rem;
+}
+.valgtVareProductCard .flex-1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.valgtVareHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+.valgtVareContainer .vareLabels {
+  height: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+.valgtVareContainer .vareLabelImg {
+  height: 100%;
+  width: auto;
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 0.25rem;
+}
+.valgtVareContainer .vareImage {
+  max-height: 200px;
+}
+.valgtVareContainer .valgtVareName {
+  font-weight: 300;
+}
+.valgtVareContainer .valgtVareFactsContainer {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.valgtVareContainer .valgtVareFacts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.valgtVareFactsHeader {
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+.valgtVareContainer .priserContainer {
+  display: flex;
+  text-wrap: nowrap;
+  margin-top: 30px;
+  gap: 10px;
+}
+.valgtVareContainer .storeContainer a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.25rem;
+  padding-right: 0.5rem;
+  transition: 0.25s;
+}
+.valgtVareContainer .storeContainer a:hover {
+  background-color: rgb(200, 200, 200);
+  border-radius: 0.25rem;
+}
+.valgtVareContainer .storeLogoContainer {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.valgtVareContainer .storeLogo {
+  /* box-shadow: 0 0 8px rgb(200, 200, 200); */
+  border: 1px solid #aaa;
+  border-radius: 0.25rem;
+  height: 80%;
+}
+.valgtVareContainer .bold {
+  font-weight: bold;
+}
+.valgtVareContainer .priceHistoryContainer {
+  width: 75%;
+  height: 300px;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 1200px) {
+  .valgtVareContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+  .valgtVareContainer .valgtVareProductCard {
+    flex-direction: column;
+  }
+  .valgtVareContainer .valgtVareProductCard .flex-1 {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .valgtVareContainer .valgtVareProductCard .flex-1 .priserContainer {
+    flex-direction: column;
+  }
+  .valgtVareContainer .flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .valgtVareContainer .valgtVareFacts {
+    text-align: left;
+  }
+  .valgtVareContainer .storeContainer a {
+    justify-content: center;
+  }
+  .valgtVareContainer .priceHistoryContainer {
+    width: 96%;
+    height: 300px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 800px) {
+  .valgtVareContainer .valgtVareProductCard .flex-1 {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .valgtVareContainer .valgtVareProductCard .flex-1 .priserContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
