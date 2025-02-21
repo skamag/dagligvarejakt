@@ -45,7 +45,14 @@ const Navbar: React.FC<NavbarProps> = ({
     <>
       <header className="header">
         <div className="logo">
-          <Link to="/" className="link" onClick={() => resetStates()}>
+          <Link
+            to="/"
+            className="link"
+            onClick={() => {
+              resetStates();
+              window.scrollTo({ top: 0 });
+            }}
+          >
             <h1 className="logo-text">Dagligvarejakt</h1>
             <h1 className="logo-icon">DVJ</h1>
           </Link>
@@ -69,8 +76,22 @@ const Navbar: React.FC<NavbarProps> = ({
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
           />
-          {valgtVare !== "" ? <Link to="/">{button()}</Link> : button()}
+          {valgtVare !== "" ? (
+            <Link
+              to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              {button()}
+            </Link>
+          ) : (
+            button()
+          )}
         </div>
       </header>
       <div

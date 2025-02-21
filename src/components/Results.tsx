@@ -30,11 +30,16 @@ const Results: React.FC<ResultsProps> = ({ data, setValgtVare, loading }) => {
               )
           )
           .map((item: any) => (
-            <Link to="/vare" className="link" key={item.id}>
-              <article
-                className="product-card"
-                onClick={() => setValgtVare(item.name)}
-              >
+            <Link
+              to="/vare"
+              className="link"
+              key={item.id}
+              onClick={() => {
+                setValgtVare(item.name);
+                window.scrollTo({ top: 0 });
+              }}
+            >
+              <article className="product-card">
                 <div className="image-container">
                   <img
                     src={

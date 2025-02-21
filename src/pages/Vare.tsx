@@ -121,7 +121,7 @@ const Vare: React.FC<VareProps> = ({ data, valgtVare }) => {
 
   return (
     <article className="valgtVareContainer">
-      {valgtVare &&
+      {valgtVare ? (
         data
           .filter((item) =>
             item.name.toLowerCase().includes(valgtVare.toLowerCase())
@@ -225,7 +225,10 @@ const Vare: React.FC<VareProps> = ({ data, valgtVare }) => {
                 />
               </div>
             </React.Fragment>
-          ))}
+          ))
+      ) : (
+        <p>Ingen vare valgt</p>
+      )}
     </article>
   );
 };

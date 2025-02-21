@@ -60,7 +60,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           {popularSearches.map((tag: string) => (
             <li key={tag} className="brand-option">
               {/* {valgtVare ?  <Link to="/">{button(tag)}</Link> : button(tag)} */}
-              <Link to="/">
+              <Link to="/" onClick={() => window.scrollTo({ top: 0 })}>
                 <button
                   onClick={() => {
                     setSearchRequest(tag);
@@ -81,7 +81,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <ul>
           {availableBrands.map((brand: string) => (
             <li key={brand} className="brand-option">
-              <Link to="/">
+              <Link to="/" onClick={() => window.scrollTo({ top: 0 })}>
                 <button
                   onClick={() => {
                     setSearchRequest("");

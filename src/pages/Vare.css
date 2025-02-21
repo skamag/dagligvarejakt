@@ -10,6 +10,7 @@
   box-sizing: border-box;
 }
 .valgtVareProductCard {
+  width: 100%;
   display: flex;
   gap: 4rem;
   border-radius: 0.25rem;
@@ -47,6 +48,7 @@
 }
 .valgtVareContainer .vareImage {
   max-height: 200px;
+  max-width: 100%;
 }
 .valgtVareContainer .valgtVareName {
   font-weight: 300;
