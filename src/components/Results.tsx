@@ -7,7 +7,7 @@ interface ResultsProps {
 }
 
 const Results: React.FC<ResultsProps> = ({ data, setValgtVare, loading }) => {
-  const isValidUrl = (url: any) => {
+  const isValidUrl = (url: string) => {
     try {
       new URL(url); // Checks if the URL is well-formed
       return true;

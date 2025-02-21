@@ -57,7 +57,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div className="common-searches">
         <h2 className="sidebar-header">Populære søk</h2>
         <ul>
-          {popularSearches.map((tag: any) => (
+          {popularSearches.map((tag: string) => (
             <li key={tag} className="brand-option">
               {/* {valgtVare ?  <Link to="/">{button(tag)}</Link> : button(tag)} */}
               <Link to="/">
@@ -79,7 +79,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div className="brands-container">
         <h2 className="sidebar-header">Merker</h2>
         <ul>
-          {availableBrands.map((brand: any) => (
+          {availableBrands.map((brand: string) => (
             <li key={brand} className="brand-option">
               <Link to="/">
                 <button
