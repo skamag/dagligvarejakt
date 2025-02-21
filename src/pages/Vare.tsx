@@ -143,14 +143,14 @@ const Vare: React.FC<VareProps> = ({ data, valgtVare }) => {
         suggestedMin:
           Math.min(
             ...filteredItems.flatMap((item) =>
-              item.price_history?.map((pricePoint: any) => pricePoint.price)
+              item.price_history?.map((pricePoint) => pricePoint.price)
             )
           ) * 0.95, // Adds 5% padding at the bottom
 
         suggestedMax:
           Math.max(
             ...filteredItems.flatMap((item) =>
-              item.price_history?.map((pricePoint: any) => pricePoint.price)
+              item.price_history?.map((pricePoint) => pricePoint.price)
             )
           ) * 1.05, // Adds 5% padding at the top
       },

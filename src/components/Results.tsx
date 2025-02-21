@@ -1,7 +1,53 @@
 import { Link } from "react-router-dom";
 
+interface Category {
+  id: number;
+  name: string;
+}
+
+interface Store {
+  name: string;
+  code: string;
+  url: string;
+  logo: string;
+}
+
+interface PriceHistory {
+  date: string;
+  price: number;
+}
+
+interface Label {
+  icon: { png: string };
+  name: string;
+}
+
+interface Data {
+  id: number;
+  name: string;
+  brand: string;
+  vendor: string;
+  ean: string;
+  description: string;
+  image: string;
+  url: string;
+  weight: number;
+  weight_unit: string;
+  current_price: number;
+  current_unit_price: number;
+  price_history: PriceHistory[];
+  store: Store;
+  category: Category[];
+  allergens: string[];
+  labels: Label[];
+  ingredients: string;
+  nutrition: string[];
+  created_at: string;
+  updated_at: string;
+}
+
 interface ResultsProps {
-  data: any[];
+  data: Data[];
   setValgtVare: React.Dispatch<React.SetStateAction<string>>;
   loading: boolean;
 }
@@ -23,13 +69,10 @@ const Results: React.FC<ResultsProps> = ({ data, setValgtVare, loading }) => {
       ) : data.length > 0 ? (
         data
           .filter(
-            (value: any, index: any, self: any) =>
-              index ===
-              self.findIndex(
-                (t: any) => t.place === value.place && t.name === value.name
-              )
+            (value, index, self) =>
+              index === self.findIndex((t) => t.name === value.name)
           )
-          .map((item: any) => (
+          .map((item) => (
             <Link
               to="/vare"
               className="link"
@@ -58,13 +101,13 @@ const Results: React.FC<ResultsProps> = ({ data, setValgtVare, loading }) => {
                   <div className="card-stores-container">
                     {data
                       .filter(
-                        (product: any) =>
+                        (product) =>
                           product.name &&
                           product.name
                             .toLowerCase()
                             .includes(item.name.toLowerCase())
                       )
-                      .map((currentItem: any) => (
+                      .map((currentItem) => (
                         <div className="card-store" key={currentItem.id}>
                           {currentItem.store && currentItem.store.logo ? (
                             <>
