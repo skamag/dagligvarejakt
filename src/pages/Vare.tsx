@@ -10,6 +10,8 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartOptions,
+  TooltipItem,
 } from "chart.js";
 
 ChartJS.register(
@@ -119,13 +121,13 @@ const Vare: React.FC<VareProps> = ({ data, valgtVare }) => {
     datasets: chartDatasets,
   };
 
-  const chartOptions = {
+  const chartOptions: ChartOptions<"line"> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
       tooltip: {
         callbacks: {
-          label: function (context: any) {
+          label: function (context: TooltipItem<"line">) {
             const label = context.dataset.label || "";
             const price = context.raw;
             const date = context.label;
