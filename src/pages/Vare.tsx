@@ -22,8 +22,54 @@ ChartJS.register(
   Legend
 );
 
+interface Category {
+  id: number;
+  name: string;
+}
+
+interface Store {
+  name: string;
+  code: string;
+  url: string;
+  logo: string;
+}
+
+interface PriceHistory {
+  date: string;
+  price: number;
+}
+
+interface Label {
+  icon: { png: string };
+  name: string;
+}
+
+interface Data {
+  id: number;
+  name: string;
+  brand: string;
+  vendor: string;
+  ean: string;
+  description: string;
+  image: string;
+  url: string;
+  weight: number;
+  weight_unit: string;
+  current_price: number;
+  current_unit_price: number;
+  price_history: PriceHistory[];
+  store: Store;
+  category: Category[];
+  allergens: string[];
+  labels: Label[];
+  ingredients: string;
+  nutrition: string[];
+  created_at: string;
+  updated_at: string;
+}
+
 interface VareProps {
-  data: any[];
+  data: Data[];
   valgtVare: string;
 }
 
@@ -51,13 +97,10 @@ const Vare: React.FC<VareProps> = ({ data, valgtVare }) => {
 
   const chartDatasets = filteredItems.map((item, index) => {
     const sortedPriceHistory = item.price_history?.sort(
-      (a: any, b: any) =>
-        new Date(a.date).getTime() - new Date(b.date).getTime()
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
     );
 
-    const prices = sortedPriceHistory?.map(
-      (pricePoint: any) => pricePoint.price
-    );
+    const prices = sortedPriceHistory?.map((pricePoint) => pricePoint.price);
 
     return {
       label: `${item.store.name}`,
@@ -70,7 +113,7 @@ const Vare: React.FC<VareProps> = ({ data, valgtVare }) => {
   });
 
   const chartData = {
-    labels: filteredItems[0]?.price_history?.map((pricePoint: any) =>
+    labels: filteredItems[0]?.price_history?.map((pricePoint) =>
       pricePoint.date.slice(0, 10)
     ),
     datasets: chartDatasets,
@@ -128,10 +171,7 @@ const Vare: React.FC<VareProps> = ({ data, valgtVare }) => {
           )
           .filter(
             (value, index, self) =>
-              index ===
-              self.findIndex(
-                (t) => t.place === value.place && t.name === value.name
-              )
+              index === self.findIndex((t) => t.name === value.name)
           )
           .map((filteredItem) => (
             <React.Fragment key={filteredItem.id}>
@@ -207,11 +247,11 @@ const Vare: React.FC<VareProps> = ({ data, valgtVare }) => {
                   </div>
                   <div className="vareLabels">
                     {filteredItem.labels &&
-                      filteredItem.labels.map((label: any) => (
+                      filteredItem.labels.map((label) => (
                         <img
                           className="vareLabelImg"
                           src={label.icon.png}
-                          alt={label.names}
+                          alt={label.name}
                         ></img>
                       ))}
                   </div>

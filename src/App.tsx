@@ -5,12 +5,58 @@ import Home from "./pages/Home";
 import Vare from "./pages/Vare";
 import "./App.css";
 
+interface Category {
+  id: number;
+  name: string;
+}
+
+interface Store {
+  name: string;
+  code: string;
+  url: string;
+  logo: string;
+}
+
+interface PriceHistory {
+  date: string;
+  price: number;
+}
+
+interface Label {
+  icon: { png: string };
+  name: string;
+}
+
+interface Data {
+  id: number;
+  name: string;
+  brand: string;
+  vendor: string;
+  ean: string;
+  description: string;
+  image: string;
+  url: string;
+  weight: number;
+  weight_unit: string;
+  current_price: number;
+  current_unit_price: number;
+  price_history: PriceHistory[];
+  store: Store;
+  category: Category[];
+  allergens: string[];
+  labels: Label[];
+  ingredients: string;
+  nutrition: string[];
+  created_at: string;
+  updated_at: string;
+}
+
 const API_URL = "https://kassal.app/api/v1/products";
 const PAGE_SIZE = 100;
 const KEY = "LmOFSdN8MdRSiZOVBqFg4uP6uKdvBKpuoHTdnkiW";
 
 function App() {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<Data[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [page, setPage] = useState<number>(1);
   const [searchText, setSearchText] = useState<string>("");

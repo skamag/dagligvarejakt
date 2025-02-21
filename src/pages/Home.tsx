@@ -3,8 +3,54 @@ import Sort from "../components/Sort";
 import Results from "../components/Results";
 import "./Home.css";
 
+interface Category {
+  id: number;
+  name: string;
+}
+
+interface Store {
+  name: string;
+  code: string;
+  url: string;
+  logo: string;
+}
+
+interface PriceHistory {
+  date: string;
+  price: number;
+}
+
+interface Label {
+  icon: { png: string };
+  name: string;
+}
+
+interface Data {
+  id: number;
+  name: string;
+  brand: string;
+  vendor: string;
+  ean: string;
+  description: string;
+  image: string;
+  url: string;
+  weight: number;
+  weight_unit: string;
+  current_price: number;
+  current_unit_price: number;
+  price_history: PriceHistory[];
+  store: Store;
+  category: Category[];
+  allergens: string[];
+  labels: Label[];
+  ingredients: string;
+  nutrition: string[];
+  created_at: string;
+  updated_at: string;
+}
+
 interface HomeProps {
-  data: any[];
+  data: Data[];
   selectedSort: string;
   setSelectedSort: React.Dispatch<React.SetStateAction<string>>;
   setValgtVare: React.Dispatch<React.SetStateAction<string>>;
