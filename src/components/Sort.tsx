@@ -1,4 +1,14 @@
-const Sort: React.FC<any> = ({ setPage, selectedSort, setSelectedSort }) => {
+interface SortProps {
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+  selectedSort: string;
+  setSelectedSort: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Sort: React.FC<SortProps> = ({
+  setPage,
+  selectedSort,
+  setSelectedSort,
+}) => {
   return (
     <div className="sort-container">
       <select

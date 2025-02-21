@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 
-const Results: React.FC<any> = ({ data, setValgtVare, loading }) => {
+interface ResultsProps {
+  data: any[];
+  setValgtVare: React.Dispatch<React.SetStateAction<string>>;
+  loading: boolean;
+}
+
+const Results: React.FC<ResultsProps> = ({ data, setValgtVare, loading }) => {
   const isValidUrl = (url: any) => {
     try {
       new URL(url); // Checks if the URL is well-formed

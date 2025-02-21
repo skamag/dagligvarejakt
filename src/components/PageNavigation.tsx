@@ -1,4 +1,9 @@
-const PageNavigation: React.FC<any> = ({ page, setPage }) => {
+interface PageNavigationProps {
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const PageNavigation: React.FC<PageNavigationProps> = ({ page, setPage }) => {
   return (
     <div className="buttons-container">
       <button

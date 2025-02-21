@@ -140,8 +140,6 @@ function App() {
                 setSearchText={setSearchText}
                 setSearchRequest={setSearchRequest}
                 handleSearch={handleSearch}
-                selectedSort={selectedSort}
-                setSelectedSort={setSelectedSort}
                 priceFrom={priceFrom}
                 setPriceFrom={setPriceFrom}
                 priceTo={priceTo}

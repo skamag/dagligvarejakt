@@ -8,8 +8,6 @@ interface LayoutProps {
   setSearchRequest: React.Dispatch<React.SetStateAction<string>>;
   setSearchText: React.Dispatch<React.SetStateAction<string>>;
   handleSearch: () => void;
-  selectedSort: string;
-  setSelectedSort: React.Dispatch<React.SetStateAction<string>>;
   priceFrom: string | number;
   setPriceFrom: React.Dispatch<React.SetStateAction<string | number>>;
   priceTo: string | number;
@@ -30,8 +28,6 @@ const Layout: React.FC<LayoutProps> = ({
   setSearchRequest,
   setSearchText,
   handleSearch,
-  selectedSort,
-  setSelectedSort,
   priceFrom,
   setPriceFrom,
   priceTo,
@@ -59,8 +55,6 @@ const Layout: React.FC<LayoutProps> = ({
       <div className="sidebar-main-wrapper">
         <Sidebar
           setSearchRequest={setSearchRequest}
-          selectedSort={selectedSort}
-          setSelectedSort={setSelectedSort}
           priceFrom={priceFrom}
           setPriceFrom={setPriceFrom}
           priceTo={priceTo}

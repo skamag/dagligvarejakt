@@ -1,6 +1,21 @@
 import { Link } from "react-router-dom";
 
-const Sidebar: React.FC<any> = ({
+interface SidebarProps {
+  setSearchRequest: React.Dispatch<React.SetStateAction<string>>;
+  priceFrom: string | number;
+  setPriceFrom: React.Dispatch<React.SetStateAction<string | number>>;
+  priceTo: string | number;
+  setPriceTo: React.Dispatch<React.SetStateAction<string | number>>;
+  popularSearches: string[];
+  availableBrands: string[];
+  selectedBrand: string;
+  setSelectedBrand: React.Dispatch<React.SetStateAction<string>>;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+  navActive: boolean;
+  setNavActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({
   setSearchRequest,
   priceFrom,
   setPriceFrom,

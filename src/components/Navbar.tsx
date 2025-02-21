@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom";
 
-const Navbar: React.FC<any> = ({
+interface NavbarProps {
+  resetStates: () => void;
+  searchText: string;
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+  handleSearch: () => void;
+  valgtVare: string;
+  navActive: boolean;
+  setNavActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Navbar: React.FC<NavbarProps> = ({
   resetStates,
   searchText,
   setSearchText,
