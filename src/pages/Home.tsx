@@ -3,7 +3,17 @@ import Sort from "../components/Sort";
 import Results from "../components/Results";
 import "./Home.css";
 
-const Home: React.FC<any> = ({
+interface HomeProps {
+  data: any[];
+  selectedSort: string;
+  setSelectedSort: React.Dispatch<React.SetStateAction<string>>;
+  setValgtVare: React.Dispatch<React.SetStateAction<string>>;
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+  loading: boolean;
+}
+
+const Home: React.FC<HomeProps> = ({
   data,
   selectedSort,
   setSelectedSort,

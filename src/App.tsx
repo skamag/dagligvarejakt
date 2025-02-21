@@ -10,17 +10,17 @@ const PAGE_SIZE = 100;
 const KEY = "LmOFSdN8MdRSiZOVBqFg4uP6uKdvBKpuoHTdnkiW";
 
 function App() {
-  const [data, setData] = useState<any>([]);
-  const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
-  const [searchText, setSearchText] = useState("");
-  const [searchRequest, setSearchRequest] = useState("");
-  const [selectedSort, setSelectedSort] = useState("date_asc");
-  const [priceFrom, setPriceFrom] = useState<any>("");
-  const [priceTo, setPriceTo] = useState<any>("");
-  const [selectedBrand, setSelectedBrand] = useState("");
-  const [valgtVare, setValgtVare] = useState("");
-  const [navActive, setNavActive] = useState(false);
+  const [data, setData] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [page, setPage] = useState<number>(1);
+  const [searchText, setSearchText] = useState<string>("");
+  const [searchRequest, setSearchRequest] = useState<string>("");
+  const [selectedSort, setSelectedSort] = useState<string>("date_asc");
+  const [priceFrom, setPriceFrom] = useState<number | string>("");
+  const [priceTo, setPriceTo] = useState<number | string>("");
+  const [selectedBrand, setSelectedBrand] = useState<string>("");
+  const [valgtVare, setValgtVare] = useState<string>("");
+  const [navActive, setNavActive] = useState<boolean>(false);
 
   const popularSearches = [
     "Ullundertøy",
@@ -70,11 +70,11 @@ function App() {
           url += `&sort=${selectedSort}`;
         }
 
-        if (priceFrom > 0) {
+        if (Number(priceFrom) > 0) {
           url += `&price_min=${priceFrom}`;
         }
 
-        if (priceTo > 0 && priceTo >= priceFrom) {
+        if (Number(priceTo) > 0 && priceTo >= priceFrom) {
           url += `&price_max=${priceTo}`;
         }
 
@@ -102,7 +102,7 @@ function App() {
     return () => clearTimeout(timeout);
   }, [searchRequest, page, selectedSort, priceFrom, priceTo, selectedBrand]);
 
-  const resetStates = () => {
+  const resetStates = (): void => {
     setPage(1);
     setSearchText("");
     setSearchRequest("");
@@ -113,7 +113,7 @@ function App() {
     setValgtVare("");
   };
 
-  const handleSearch = () => {
+  const handleSearch = (): void => {
     if (searchText.length < 3) {
       // setData([0])
       alert("Søketekst må inneholde minst 3 tegn");

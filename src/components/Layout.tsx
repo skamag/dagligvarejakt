@@ -2,7 +2,29 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { Outlet } from "react-router-dom";
 
-const Layout: React.FC<any> = ({
+interface LayoutProps {
+  resetStates: () => void;
+  searchText: string;
+  setSearchRequest: React.Dispatch<React.SetStateAction<string>>;
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+  handleSearch: () => void;
+  selectedSort: string;
+  setSelectedSort: React.Dispatch<React.SetStateAction<string>>;
+  priceFrom: string | number;
+  setPriceFrom: React.Dispatch<React.SetStateAction<string | number>>;
+  priceTo: string | number;
+  setPriceTo: React.Dispatch<React.SetStateAction<string | number>>;
+  popularSearches: string[];
+  availableBrands: string[];
+  selectedBrand: string;
+  setSelectedBrand: React.Dispatch<React.SetStateAction<string>>;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+  valgtVare: string;
+  navActive: boolean;
+  setNavActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Layout: React.FC<LayoutProps> = ({
   resetStates,
   searchText,
   setSearchRequest,

@@ -22,18 +22,23 @@ ChartJS.register(
   Legend
 );
 
-const Vare: React.FC<any> = ({ data, valgtVare }) => {
+interface VareProps {
+  data: any[];
+  valgtVare: string;
+}
+
+const Vare: React.FC<VareProps> = ({ data, valgtVare }) => {
   console.log(data, valgtVare);
 
   const filteredItems =
     data && valgtVare !== ""
-      ? data.filter((item: any) =>
+      ? data.filter((item) =>
           item.name.toLowerCase().includes(valgtVare.toLowerCase())
         )
       : [];
 
   const sortedItems = filteredItems.sort(
-    (a: any, b: any) => a.current_price - b.current_price
+    (a, b) => a.current_price - b.current_price
   );
   const lowestPrice =
     sortedItems.length > 0 ? sortedItems[0].current_price : null;
@@ -44,7 +49,7 @@ const Vare: React.FC<any> = ({ data, valgtVare }) => {
     "#405070", // Blå
   ];
 
-  const chartDatasets = filteredItems.map((item: any, index: any) => {
+  const chartDatasets = filteredItems.map((item, index) => {
     const sortedPriceHistory = item.price_history?.sort(
       (a: any, b: any) =>
         new Date(a.date).getTime() - new Date(b.date).getTime()
@@ -94,14 +99,14 @@ const Vare: React.FC<any> = ({ data, valgtVare }) => {
         },
         suggestedMin:
           Math.min(
-            ...filteredItems.flatMap((item: any) =>
+            ...filteredItems.flatMap((item) =>
               item.price_history?.map((pricePoint: any) => pricePoint.price)
             )
           ) * 0.95, // Adds 5% padding at the bottom
 
         suggestedMax:
           Math.max(
-            ...filteredItems.flatMap((item: any) =>
+            ...filteredItems.flatMap((item) =>
               item.price_history?.map((pricePoint: any) => pricePoint.price)
             )
           ) * 1.05, // Adds 5% padding at the top
@@ -118,17 +123,17 @@ const Vare: React.FC<any> = ({ data, valgtVare }) => {
     <article className="valgtVareContainer">
       {valgtVare &&
         data
-          .filter((item: any) =>
+          .filter((item) =>
             item.name.toLowerCase().includes(valgtVare.toLowerCase())
           )
           .filter(
-            (value: any, index: any, self: any) =>
+            (value, index, self) =>
               index ===
               self.findIndex(
-                (t: any) => t.place === value.place && t.name === value.name
+                (t) => t.place === value.place && t.name === value.name
               )
           )
-          .map((filteredItem: any) => (
+          .map((filteredItem) => (
             <React.Fragment key={filteredItem.id}>
               <div className="valgtVareProductCard">
                 <div className="flex-1">
@@ -143,7 +148,7 @@ const Vare: React.FC<any> = ({ data, valgtVare }) => {
                   </div>
                   <div className={"priserContainer"}>
                     {data && valgtVare !== ""
-                      ? sortedItems.map((filteredItem: any) => (
+                      ? sortedItems.map((filteredItem) => (
                           <div
                             key={filteredItem.id}
                             className={"storeContainer"}
